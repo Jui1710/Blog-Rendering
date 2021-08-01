@@ -12,10 +12,21 @@ const getBlog = (data) => {
 }
 
 
-fetch(url)
-    .then(response => response.json())
-    .then((data) => {
-        content.appendChild(Content(data, getBlog(data)));
-    })
-    .catch(err => console.log(err));
+const createBlogPage = async () => {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        Content(data, getBlog(data));
+    }
+    catch (err) { err => console.log(err) }
+}
+
+createBlogPage();
+
+// fetch(url)
+//     .then(response => response.json())
+//     .then((data) => {
+//         Content(data, getBlog(data));
+//     })
+//     .catch(err => console.log(err));
 
