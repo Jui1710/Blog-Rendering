@@ -1,3 +1,4 @@
+import { Aside } from "./aside.js";
 
 
 export const Content = (data, id) => {
@@ -18,34 +19,7 @@ export const Content = (data, id) => {
     BlogContent.textContent = currentObj.content;
     markup.appendChild(BlogContent);
 
-    let markupAside = document.getElementById('aside');
-    let relatedlinks = document.createElement('h1');
-    relatedlinks.textContent = "Related Links";
-    markupAside.appendChild(relatedlinks);
-
-    let Links = currentObj.links;
-    Links.forEach(element => {
-        let link = document.createElement('a');
-        link.textContent = element.title;
-        // link.onclick = gotoLink(data, link.id);
-
-        link.addEventListener('click', event => {
-            gotoLink(data, element.id);
-        })
-        markupAside.appendChild(link);
-
-        let breakruler = document.createElement('br');
-        markupAside.appendChild(breakruler);
-    });
-
-}
-
-const gotoLink = (data, id) => {
-    var node = document.getElementById("content");
-    node.querySelectorAll('*').forEach(n => n.remove());
-    var node = document.getElementById("aside");
-    node.querySelectorAll('*').forEach(n => n.remove());
-    Content(data, id);
+    Aside(data, currentObj.links);
 }
 
 
