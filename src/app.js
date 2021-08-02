@@ -1,10 +1,5 @@
 import { Content } from "./components/content.js";
 
-
-let content = document.getElementById('content');
-let aside = document.getElementById('aside');
-
-
 let url = "https://jui1710.github.io/json-data-server/blogs/blogs.json";
 
 const getBlog = (data) => {
